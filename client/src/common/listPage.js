@@ -1,15 +1,5 @@
 import React, { Component } from "react";
-
-const List = props => {
-  const itemValue = props.items;
-  const eachRow = itemValue.map(eachValue => (
-    <tr key={eachValue.id}>
-      <td>{eachValue.title}</td>
-      <td>{eachValue.content}</td>
-    </tr>
-  ));
-  return <tbody>{eachRow}</tbody>;
-};
+import { Link } from "react-router-dom";
 
 class Listing extends Component {
   constructor(props) {
@@ -20,7 +10,16 @@ class Listing extends Component {
   render() {
     return (
       <table>
-        <List items={this.state.data} />
+        <tbody>
+          {this.state.data.map(post => (
+            <tr key={post.id}>
+              <td>
+                <Link to={"coding-fun/" + post.title}>{post.title}</Link>
+              </td>
+              <td>{post.content}</td>
+            </tr>
+          ))}
+        </tbody>
       </table>
     );
   }

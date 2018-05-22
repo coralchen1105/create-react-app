@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 
 class SingleArticle extends Component {
+  componentDidMount() {
+    var title = this.props.match.params.title;
+    console.log(title);
+  }
+
   render() {
     return (
       <div className="nav-text">

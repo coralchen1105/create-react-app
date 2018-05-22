@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 
 import "../styles/App.css";
-import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Home from "../components/home";
 import About from "../components/about";
 import Building from "../components/listingPage/buildingWeb";
@@ -52,20 +53,23 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route exact path="/about-us" component={About} />
             <Route exact path="/building-web" component={Building} />
-            <Route path="/building-web/:id" component={singleArticle} />
+            <Route path="/building-web/:title" component={singleArticle} />
             <Route exact path="/coding-fun" component={Coding} />
-            <Route path="/coding-fun/:id" component={singleArticle} />
+            <Route path="/coding-fun/:title" component={singleArticle} />
             <Route
               exact
               path="/interesting-articles"
               component={InterestArticle}
             />
-            <Route path="/interesting-articles/:id" component={singleArticle} />
+            <Route
+              path="/interesting-articles/:title"
+              component={singleArticle}
+            />
             <Route exact path="/addnewarticle" component={addNewArticle} />
-            <Route component={notFoundPage} />
+            {/* <Route component={notFoundPage} /> */}
           </Switch>
           <div className="container-fluid">
-            <button class="btn btn-default" type="submit">
+            <button className="btn btn-default" type="submit">
               Button test bootrap
             </button>
           </div>
