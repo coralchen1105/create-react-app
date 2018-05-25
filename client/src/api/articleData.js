@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   articles: [
     {
       id: 1,

@@ -1,7 +1,5 @@
-"use strict";
-
-var articles = require("./articleApi").articles;
-var _ = require("lodash");
+import articles from "./articleData";
+import _ from "lodash";
 
 var uniqueId = function() {
   return (
@@ -22,7 +20,7 @@ var ArticleApi = {
   },
 
   getArticlesByType: function(type) {
-    var articleByType = _.find(articles, { type: type });
+    var articleByType = _.filter(articles.articles, { type: type });
     return _clone(articleByType);
   },
 
@@ -30,7 +28,7 @@ var ArticleApi = {
     if (article.id) {
       var existingArticleIndex = _.indexOf(
         articles,
-        _.find(articles, { id: articles.id })
+        _.find(articles.articles, { id: articles.id })
       );
       articles.splice(existingArticleIndex, 1, article);
     } else {
@@ -39,5 +37,11 @@ var ArticleApi = {
     }
 
     return _clone(article);
+  },
+
+  deleteArticle: function(id) {
+    _.remove(articles, { id: id });
   }
 };
+
+export default ArticleApi;

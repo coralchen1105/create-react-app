@@ -14,7 +14,9 @@ class Listing extends Component {
           {this.state.data.map(post => (
             <tr key={post.id}>
               <td>
-                <Link to={"coding-fun/" + post.title}>{post.title}</Link>
+                <Link to={this.props.pageName + "/" + post.title}>
+                  {post.title}
+                </Link>
               </td>
               <td>{post.content}</td>
             </tr>
