@@ -68,11 +68,6 @@ class App extends Component {
             <Route exact path="/addnewarticle" component={addNewArticle} />
             {/* <Route component={notFoundPage} /> */}
           </Switch>
-          <div className="container-fluid">
-            <button className="btn btn-default" type="submit">
-              Button test bootrap
-            </button>
-          </div>
         </div>
       </Router>
     );

@@ -1,21 +1,20 @@
 import React, { Component } from "react";
 import ListPage from "../../common/listPage";
-
-const posts = [
-  {
-    id: 1,
-    title: "Hello World-building-web",
-    content: "Welcome to learning React!"
-  },
-  { id: 2, title: "Installation", content: "You can install React from npm." }
-];
+import ArticleApi from "../../api/articleApi";
 
 class Building extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      posts: ArticleApi.getArticlesByType("building")
+    };
+  }
+
   render() {
     return (
       <div className="nav-text">
-        <h1>Building web</h1>
-        <ListPage items={posts} />
+        <h1>Coding fun page</h1>
+        <ListPage items={this.state.posts} pageName="building-web" />
       </div>
     );
   }

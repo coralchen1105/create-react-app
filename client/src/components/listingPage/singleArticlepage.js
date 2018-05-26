@@ -2,8 +2,10 @@ import React, { Component } from "react";
 
 class SingleArticle extends Component {
   componentDidMount() {
+    // title is params set at route
     var title = this.props.match.params.title;
     console.log(title);
+    console.log(this.props.location.pathname);
   }
 
   render() {
