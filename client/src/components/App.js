@@ -52,20 +52,16 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/about-us" component={About} />
-            <Route exact path="/building-web" component={Building} />
-            <Route path="/building-web/:title" component={singleArticle} />
-            <Route exact path="/coding-fun" component={Coding} />
+            <Route path="/building-web" component={Building} />
+
+            <Route path="/coding-fun" component={Coding} />
             <Route path="/coding-fun/:title" component={singleArticle} />
-            <Route
-              exact
-              path="/interesting-articles"
-              component={InterestArticle}
-            />
+            <Route path="/interesting-articles" component={InterestArticle} />
             <Route
               path="/interesting-articles/:title"
               component={singleArticle}
             />
-            <Route exact path="/addnewarticle" component={addNewArticle} />
+            <Route path="/addnewarticle" component={addNewArticle} />
             {/* <Route component={notFoundPage} /> */}
           </Switch>
         </div>

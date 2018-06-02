@@ -1,20 +1,24 @@
-import React, { Component } from "react";
+import React from "react";
 
-class SingleArticle extends Component {
-  componentDidMount() {
-    // title is params set at route
-    var title = this.props.match.params.title;
-    console.log(title);
-    console.log(this.props.location.pathname);
-  }
+const SingleArticle = ({ match, data }) => {
+  var post = data.find(p => p.title === String(match.params.title));
+  var postData;
 
-  render() {
-    return (
-      <div className="nav-text">
-        <h1>Single Article page</h1>
+  if (post)
+    postData = (
+      <div>
+        <h3> {post.title} </h3>
+        <p>{post.content}</p>
+        <hr />
       </div>
     );
-  }
-}
+  else postData = <h2> Sorry. Product doesnt exist </h2>;
+
+  return (
+    <div>
+      <div>{postData}</div>
+    </div>
+  );
+};
 
 export default SingleArticle;
