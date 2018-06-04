@@ -23,7 +23,9 @@ class Building extends Component {
             {this.state.posts.map(post => (
               <tr key={post.id}>
                 <td>
-                  <Link to={`${this.props.match.url}/${post.title}`}>
+                  <Link
+                    to={`${this.props.match.url}/${post.date}/${post.title}`}
+                  >
                     {post.title}
                   </Link>
                 </td>
@@ -32,11 +34,6 @@ class Building extends Component {
             ))}
           </tbody>
         </table>
-        <Route
-          path={`${this.props.match.url}/:title`}
-          render={props => <SingleArticle data={this.state.posts} {...props} />}
-        />
-        <Route path={`${this.props.match.url}/about-us`} component={About} />
       </div>
     );
   }

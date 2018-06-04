@@ -8,7 +8,7 @@ import About from "../components/about";
 import Building from "../components/listingPage/buildingWeb";
 import Coding from "../components/listingPage/codingFun";
 import InterestArticle from "../components/listingPage/interestingArticles";
-import singleArticle from "../components/listingPage/singleArticlepage";
+import SingleArticle from "../components/listingPage/singleArticlepage";
 import addNewArticle from "../components/listingPage/addNewArticlepage";
 import notFoundPage from "../components/notFoundPage";
 
@@ -52,14 +52,17 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/about-us" component={About} />
-            <Route path="/building-web" component={Building} />
-
-            <Route path="/coding-fun" component={Coding} />
-            <Route path="/coding-fun/:title" component={singleArticle} />
+            <Route exact path="/building-web" component={Building} />
+            <Route
+              path="/building-web/:date/:title"
+              component={SingleArticle}
+            />
+            <Route exact path="/coding-fun" component={Coding} />
+            <Route path="/coding-fun/:title" component={SingleArticle} />
             <Route path="/interesting-articles" component={InterestArticle} />
             <Route
               path="/interesting-articles/:title"
-              component={singleArticle}
+              component={SingleArticle}
             />
             <Route path="/addnewarticle" component={addNewArticle} />
             {/* <Route component={notFoundPage} /> */}
