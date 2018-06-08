@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import ListPage from "../../common/listPage";
 import ArticleApi from "../../api/articleApi";
 import SingleArticle from "./singleArticlepage";
-import About from "../about";
-// import Product from "./product";
-import { Link, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class Building extends Component {
   constructor(props) {

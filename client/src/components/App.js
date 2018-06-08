@@ -59,7 +59,11 @@ class App extends Component {
             />
             <Route exact path="/coding-fun" component={Coding} />
             <Route path="/coding-fun/:title" component={SingleArticle} />
-            <Route path="/interesting-articles" component={InterestArticle} />
+            <Route
+              exact
+              path="/interesting-articles"
+              component={InterestArticle}
+            />
             <Route
               path="/interesting-articles/:title"
               component={SingleArticle}

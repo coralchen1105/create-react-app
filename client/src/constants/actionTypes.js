@@ -1,0 +1,7 @@
+const actionTypes = {
+  INITIALIZE: "INITIALIZE",
+  CREATE_ACTICLE: "CREATE_ACTICLE",
+  UPDATE_ACTICLE: "UPDATE_ACTICLE",
+  DELETE_ACTICLE: "DELETE_ACTICLE"
+};
+export default actionTypes;
