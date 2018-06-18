@@ -27,13 +27,14 @@ var ArticleApi = {
   saveArticle: function(article) {
     if (article.id) {
       var existingArticleIndex = _.indexOf(
-        articles,
+        articles.articles,
         _.find(articles.articles, { id: articles.id })
       );
-      articles.splice(existingArticleIndex, 1, article);
+      articles.articles.splice(existingArticleIndex, 1, article);
     } else {
-      article.id = uniqueId;
-      articles.push(article);
+      article.id = uniqueId();
+      console.log(article.id);
+      articles.articles.push(article);
     }
 
     return _clone(article);

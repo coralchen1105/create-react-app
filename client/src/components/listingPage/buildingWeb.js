@@ -28,6 +28,7 @@ class Building extends Component {
                   </Link>
                 </td>
                 <td>{post.date}</td>
+                <td />
               </tr>
             ))}
           </tbody>

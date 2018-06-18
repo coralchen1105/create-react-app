@@ -1,15 +1,24 @@
 import React, { Component } from "react";
+import ArticleAction from "../../actions/articleAction";
+import ArticleStore from "../../stores/articleStore";
 
 class AddNewArticle extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      article: { title: "", type: "", content: "", date: "" },
+      article: { id: "", title: "", type: "", content: "", date: "" },
       errors: {}
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
+  }
+  componentDidMount() {
+    ArticleStore.addChangeListener(this._onChange);
+  }
+
+  componentWillUnmount() {
+    ArticleStore.removeChangeListener(this._onChange);
   }
 
   handleChange(event) {
@@ -20,18 +29,16 @@ class AddNewArticle extends Component {
 
   handleFormSubmit(event) {
     event.preventDefault();
-    console.log(
-      "you have submit: " +
-        "title: " +
-        this.state.article.title +
-        " type: " +
-        this.state.article.type +
-        " content: " +
-        this.state.article.content +
-        " date: " +
-        this.state.article.date
-    );
+    ArticleAction.createArticle(this.state.article);
+    this.setState({
+      article: { id: "", title: "", type: "", content: "", date: "" }
+    });
   }
+
+  _onChange() {
+    console.log("callback");
+  }
+
   render() {
     return (
       <form onSubmit={this.handleFormSubmit}>
@@ -103,6 +110,7 @@ class AddNewArticle extends Component {
             />
           </div>
         </div>
+
         <input type="submit" value="Save" className="btn btn-default" />
       </form>
     );
