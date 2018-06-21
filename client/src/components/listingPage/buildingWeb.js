@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import ListPage from "../../common/listPage";
 import ArticleApi from "../../api/articleApi";
-import SingleArticle from "./singleArticlepage";
 import { Link } from "react-router-dom";
 
 class Building extends Component {

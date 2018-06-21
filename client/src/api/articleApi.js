@@ -1,3 +1,4 @@
+// pass value not reference
 import articles from "./articleData";
 import _ from "lodash";
 
@@ -11,6 +12,9 @@ var uniqueId = function() {
 };
 
 var _clone = function(item) {
+  // JSON.stringify: convert js value to JSON
+  // JSON.parse: convert JSON to javascript object
+  //return cloned copy so that the item is passed by value instead of by reference
   return JSON.parse(JSON.stringify(item));
 };
 
@@ -33,7 +37,6 @@ var ArticleApi = {
       articles.articles.splice(existingArticleIndex, 1, article);
     } else {
       article.id = uniqueId();
-      console.log(article.id);
       articles.articles.push(article);
     }
 
