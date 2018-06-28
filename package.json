@@ -16,5 +16,6 @@
   },
   "devDependencies": {
     "concurrently": "^3.5.0"
-  }
+  },
+  "private": true
 }

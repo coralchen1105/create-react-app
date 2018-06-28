@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ArticleAction from "../../actions/articleAction";
 import ArticleStore from "../../stores/articleStore";
+import articleStore from "../../stores/articleStore";
 
 class AddNewArticle extends Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class AddNewArticle extends Component {
   }
   componentDidMount() {
     ArticleStore.addChangeListener(this._onChange);
+    console.log(articleStore.newArticle);
   }
 
   componentWillUnmount() {
