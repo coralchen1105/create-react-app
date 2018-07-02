@@ -14,4 +14,7 @@ app.get("/api/hello", (req, res) => {
   res.send({ express: articles });
 });
 
+app.post("/api/articles", (req, res) => {
+  console.log(req);
+});
 app.listen(port, () => console.log(`Listening on port ${port}`));

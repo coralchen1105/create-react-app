@@ -1,6 +1,7 @@
 import Dispatcher from "../dispatcher/appDispatcher";
 import actionTypes from "../constants/actionTypes";
 import { EventEmitter } from "events";
+import $ from "jquery";
 
 class ArticleStore extends EventEmitter {
   constructor() {
@@ -8,12 +9,36 @@ class ArticleStore extends EventEmitter {
     Dispatcher.register(this._registerToActions.bind(this));
   }
 
-  newArticle = [];
+  _state = {
+    article: [],
+    message: "",
+    editingBook: null
+  };
+  _props = {
+    url: "/api/articles"
+  };
+
+  _saveArticle(article) {
+    $.ajax({
+      url: this._props.url,
+      dataType: "json",
+      method: "POST",
+      data: article,
+      caceh: false,
+      success: function(data) {
+        this._state.message = "Successfully added book!";
+        this._state.article = data;
+      },
+      error: function(xhr, status, err) {
+        console.log(err);
+      }
+    });
+  }
   _registerToActions(action) {
     switch (action.actionType) {
       case actionTypes.CREATE_ACTICLE:
-        this.newArticle.push(action.payload);
-        console.log(this.newArticle);
+        this._saveArticle(action.payload);
+
         this.emit("change");
         break;
 

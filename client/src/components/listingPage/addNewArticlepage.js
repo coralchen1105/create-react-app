@@ -16,7 +16,6 @@ class AddNewArticle extends Component {
   }
   componentDidMount() {
     ArticleStore.addChangeListener(this._onChange);
-    console.log(articleStore.newArticle);
   }
 
   componentWillUnmount() {
