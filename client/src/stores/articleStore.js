@@ -15,7 +15,7 @@ class ArticleStore extends EventEmitter {
     editingBook: null
   };
   _props = {
-    url: "/api/articles"
+    url: "http://localhost:5000/api/articles"
   };
 
   _saveArticle(article) {
@@ -24,13 +24,14 @@ class ArticleStore extends EventEmitter {
       dataType: "json",
       method: "POST",
       data: article,
-      caceh: false,
+      cache: false,
       success: function(data) {
         this._state.message = "Successfully added book!";
         this._state.article = data;
       },
       error: function(xhr, status, err) {
         console.log(err);
+        console.log("error");
       }
     });
   }

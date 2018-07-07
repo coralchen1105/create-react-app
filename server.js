@@ -10,11 +10,21 @@ const articles = require("./api/articleData");
 const app = express();
 const port = process.env.PORT || 5000;
 
+var bodyParser = require("body-parser");
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+
 app.get("/api/hello", (req, res) => {
   res.send({ express: articles });
 });
 
 app.post("/api/articles", (req, res) => {
-  console.log(req);
+  var user_id = req.body.id;
+  var title = req.body.title;
+  var content = req.body.content;
+  var type = req.body.type;
+  var date = req.body.date;
+
+  res.send(user_id + " " + title + " " + content + " " + type + " " + date);
 });
 app.listen(port, () => console.log(`Listening on port ${port}`));

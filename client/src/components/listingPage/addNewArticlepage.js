@@ -31,6 +31,12 @@ class AddNewArticle extends Component {
   handleFormSubmit(event) {
     event.preventDefault();
     ArticleAction.createArticle(this.state.article);
+
+    // fetch("http://localhost:5000/api/articles", {
+    //   method: "POST",
+    //   body: data
+    // });
+
     this.setState({
       article: { id: "", title: "", type: "", content: "", date: "" }
     });
